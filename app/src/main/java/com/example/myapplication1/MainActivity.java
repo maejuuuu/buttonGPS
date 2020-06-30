@@ -31,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button buttonSetting = (Button) findViewById(R.id.button1);
+
+        buttonSetting.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivityForResult(intent,0);
+            }
+        });
+
         textView = (TextView) findViewById(R.id.gps_text);
 
         lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -53,14 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 0,
                 locationListener);
 
-        Button buttonSetting = findViewById(R.id.button1);
-
-        buttonSetting.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                startActivityForResult(intent,0);
-            }
-        });
     }
 
     private class MyLocationListener implements LocationListener
