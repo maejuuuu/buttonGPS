@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         textView = (TextView) findViewById(R.id.gps_text);
 
         lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
